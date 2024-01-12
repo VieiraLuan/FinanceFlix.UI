@@ -1,1 +1,94 @@
-<p>create-account works!</p>
+<app-header-login> </app-header-login>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">Criar conta</h1>
+      </div>
+    </div>
+    <div class="row">
+
+      <form class="px-4 py-3" (ngSubmit)="onSubmit()">
+
+        <!--Name Input-->
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail1" class="form-label">Nome</label>
+          <input #nomeInput type="text" class="form-control" id="nome" placeholder="Nome" [(ngModel)]="account.nome"
+            name="nome" required>
+        </div>
+
+        <!--Email Input-->
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail1" class="form-label">Email</label>
+          <input #emailInput type="email" class="form-control" id="email" placeholder="financeflix@gmail.com"
+            [(ngModel)]="account.email" name="email" required>
+
+
+        </div>
+
+        <!-- Account Type Dropdown -->
+        <div class="mb-3">
+          <label for="exampleDropdownFormAccountType" class="form-label">Tipo de Conta</label>
+          <select class="form-select" id="accountType" [(ngModel)]="account.tipo" name="tipoConta" required>
+            <option value="" disabled selected>Selecione o tipo de conta</option>
+            <option value="Aluno">Aluno</option>
+            <option value="Criador">Criador de conteúdo</option>
+            <option value="Admin">Administrador</option>
+          </select>
+        </div>
+
+        <!--Password Input-->
+        <div class="mb-3">
+          <label for="exampleDropdownFormsenha1" class="form-label">Senha</label>
+          <input #senhaInput type="password" class="form-control" id="senha" placeholder="Digite a senha"
+            [(ngModel)]="account.senha" name="senha" required>
+
+
+          <!--Password Input 2-->
+
+
+
+          <label for="exampleDropdownFormsenha2" class="form-label"></label>
+          <input #senhaInput2 type="password" class="form-control" id="senha2" placeholder="Digite a senha novamente"
+            [(ngModel)]="secondPasswordValue" name="senha2" required>
+        </div>
+
+
+
+        <!--Input for admin password-->
+
+        <div class="mb-3">
+          <label for="exampleDropdownFormsenhaAdmin" class="form-label">Senha do Administrador</label>
+          <input #senhaInputAdmin type="password" class="form-control" id="senhaAdmin"
+            placeholder="Informe a senha do administrador" [(ngModel)]="adminPasswordValue" name="senhaAdmin" required>
+        </div>
+
+        <!--Input for user´s photo-->
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Escolher uma foto</label>
+          <input class="form-control" type="file" id="formFile">
+        </div>
+
+
+        <!--Action Buttons-->
+        <div class="col d-flex justify-content-between">
+
+          <button type="button"  class="btn btn-primary">Inicio</button>
+
+          <button type="submit" class="btn btn-primary">Criar conta</button>
+        </div>
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+
+</body>
+
+<app-footer-login></app-footer-login>

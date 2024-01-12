@@ -21,9 +21,9 @@ import { FooterLoginComponent } from './components/footer-login/footer-login.com
     FooterLoginComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule
   ],
   providers: [],

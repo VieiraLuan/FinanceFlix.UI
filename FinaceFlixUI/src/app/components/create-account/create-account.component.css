@@ -1,0 +1,8 @@
+.container {
+
+  width: 80%; /* Ajuste a largura do container conforme necessário */
+  max-width: 600px; /* Defina uma largura máxima se desejar */
+  width: 75vh;
+  height: 75vh;
+
+}

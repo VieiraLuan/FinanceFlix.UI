@@ -11,15 +11,19 @@
     <div class="row">
 
       <form class="px-4 py-3" (ngSubmit)="onSubmit()">
+
+        <!--Email Input-->
         <div class="mb-3">
           <label for="exampleDropdownFormEmail1" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="financeflix@gmail.com"
-            [(ngModel)]="user.email" name="email">
+          <input #emailInput type="email" class="form-control" id="email" placeholder="financeflix@gmail.com"
+            [(ngModel)]="user.email" name="email" required>
+
+          <!--Password Input-->
         </div>
         <div class="mb-3">
           <label for="exampleDropdownFormsenha1" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Senha"
-            [(ngModel)]="user.senha" name="senha">
+          <input #senhaInput type="password" class="form-control" id="senha" placeholder="Senha"
+            [(ngModel)]="user.senha" name="senha" required>
         </div>
         <div class="mb-3">
           <div class="form-check">
@@ -34,7 +38,7 @@
           <div class="col-md-12">
             <a href="#">Esqueci a senha </a>
             <a><br></a>
-            <p href="#">Não tem uma conta? <a href="">Cadastre-se</a></p>
+            <p href="#">Não tem uma conta? <a href="/create-account">Cadastre-se</a></p>
           </div>
         </div>
 

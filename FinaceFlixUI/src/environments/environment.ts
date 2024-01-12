@@ -3,7 +3,26 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  //Current API URLs
+  loginApiUrl: `https://localhost:7168/api/v1/Usuario/login`,
+
+  //Deprecated API URLs
+
+  //Alert Phrase´s
+  sucess: 'Sucesso',
+  loginSucess: 'Login realizado com sucesso!',
+  loginFailed:'Falha ao realizar login!',
+  loginErrorEmailPasswordNull: 'Preencha o email e a senha!',
+  errorPhrase: 'Aconteceu um erro!',
+  requiredField: 'Campo obrigatório!',
+  requiredFields: 'Campos obrigatórios!',
+  invalidEmail: 'Email inválido!',
+  writeValidEmail: 'Digite um email válido!',
+  writePassword: 'Preencha a senha!',
+  writeEmail: 'Preencha o email!',
+  loginErrorContactSupport: 'Entre em contato com o suporte!',
 };
 
 /*
