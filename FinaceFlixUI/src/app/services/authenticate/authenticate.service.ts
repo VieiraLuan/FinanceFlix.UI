@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { LoginRequest } from '../../models/LoginRequest';
 import { Observable, map } from 'rxjs';
+import { UserAccount } from 'src/app/models/UserAccount';
 
 @Injectable({
   providedIn: 'root',
@@ -22,4 +23,11 @@ export class AuthenticateService {
         })
       );
   }
+
+  public createAccount(account:UserAccount): Observable<UserAccount> {
+
+    //implementar serviço de criação de conta
+    return this.http.post<any>(this.endPoint, { observe: 'response' })
+  }
+
 }

@@ -3,7 +3,8 @@ import { AuthenticateService } from '../../services/authenticate/authenticate.se
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LoginRequest } from 'src/app/models/LoginRequest';
 import { AlertService } from 'src/app/services/alert/alert.service';
-import { environment } from 'src/environments/environment';
+import { phrases } from 'src/app/shared/phrases/phrases';
+
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,11 @@ export class LoginComponent implements OnInit {
   @ViewChild('emailInput') emailInputElement!: ElementRef;
   @ViewChild('senhaInput') senhaInputElement!: ElementRef;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.emailInputElement.nativeElement.focus();
+
+  }
 
   onSubmit() {
     if (this.formValidator()) {
@@ -30,8 +35,8 @@ export class LoginComponent implements OnInit {
         (result) => {
           localStorage.setItem('token', result.token);
           this.alertService.showSuccessAlert(
-            environment.loginSucess,
-            environment.sucess
+            phrases.loginSucess,
+            phrases.sucess
           );
 
           setTimeout(() => {
@@ -42,12 +47,12 @@ export class LoginComponent implements OnInit {
           if (error.error.message != null) {
             this.alertService.showErrorAlert(
               error.error.message,
-              environment.loginFailed
+              phrases.loginFailed
             );
           } else {
             this.alertService.showErrorAlert(
-              environment.loginErrorContactSupport,
-              environment.errorPhrase
+              phrases.loginErrorContactSupport,
+              phrases.errorPhrase
             );
           }
         }
@@ -59,30 +64,30 @@ export class LoginComponent implements OnInit {
     if (!this.user.senha && !this.user.email) {
       this.emailInputElement.nativeElement.focus();
       this.alertService.showWarningAlert(
-        environment.loginErrorEmailPasswordNull,
-        environment.requiredFields
+        phrases.loginErrorEmailPasswordNull,
+        phrases.requiredFields
       );
       return false;
     } else if (!this.validatorService.isEmail(this.user.email)) {
       this.emailInputElement.nativeElement.value = '';
       this.emailInputElement.nativeElement.focus();
       this.alertService.showWarningAlert(
-        environment.writeValidEmail,
-        environment.invalidEmail
+        phrases.writeValidEmail,
+        phrases.invalidEmail
       );
       return false;
     } else if (!this.user.senha) {
       this.senhaInputElement.nativeElement.focus();
       this.alertService.showWarningAlert(
-        environment.writePassword,
-        environment.requiredField
+        phrases.writePassword,
+        phrases.requiredField
       );
       return false;
     } else if (!this.user.email) {
       this.emailInputElement.nativeElement.focus();
       this.alertService.showWarningAlert(
-        environment.writeEmail,
-        environment.requiredField
+        phrases.writeEmail,
+        phrases.requiredField
       );
 
       return false;
